@@ -11,7 +11,15 @@ export const Container = styled.div`
 `
 
 export const Scroll = styled.div`
+    display: inline-flex;
+    flex-direction: column;
     height: 100%;
+    width: 100%;
     margin: 0em;
     overflow-y: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 `

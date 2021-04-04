@@ -7,7 +7,7 @@ const App = () => {
   const [socket, setSocket] = useState(undefined)
   const [userName, setUserName] = useState('')
   const [inputText, setInputText] = useState('')
-  const [history, setHistory] = useState(undefined)
+  const [history, setHistory] = useState([])
 
   const handleSendMessage = () => {
     if (userName === '') {
@@ -39,7 +39,6 @@ const App = () => {
       setHistory(message.data)
     } else if (message.type === 'message') {
       setHistory(history.concat(message.data))
-      const time = new Date(message.data.time)
     }
   }
 
@@ -63,7 +62,7 @@ const App = () => {
 
   return (
     <Container>
-      <Chat messages={history} />
+      <Chat messages={history} userName={userName} />
       <Title>
         {userName === '' ? 'Insira seu nome' : `Digite a sua mensagem, ${userName}`}
       </Title>
