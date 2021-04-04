@@ -35,7 +35,10 @@ const Chat = (_ref) => {
   (0, _react.useEffect)(() => {
     scrollToBottom();
   }, [messages]);
-  return /*#__PURE__*/_react.default.createElement(_styles.Container, null, /*#__PURE__*/_react.default.createElement(_styles.Scroll, null, messages.map((message, index) => /*#__PURE__*/_react.default.createElement(_ChatItem.ChatItem, {
+
+  const EmptyChat = () => /*#__PURE__*/_react.default.createElement(_styles.EmptyChatContainer, null, /*#__PURE__*/_react.default.createElement(_styles.EmptyChatText, null, "As mensagens apareceram aqui"));
+
+  return /*#__PURE__*/_react.default.createElement(_styles.Container, null, messages.length === 0 && /*#__PURE__*/_react.default.createElement(EmptyChat, null), /*#__PURE__*/_react.default.createElement(_styles.Scroll, null, messages.map((message, index) => /*#__PURE__*/_react.default.createElement(_ChatItem.ChatItem, {
     key: index,
     message: message,
     userName: userName

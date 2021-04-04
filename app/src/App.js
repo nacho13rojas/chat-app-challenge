@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
-import { Container, Title, Button, Input } from './styles'
+import { Container, Content, Title } from './styles'
 import { Chat } from './components/Chat/Chat'
+import { TextBox } from './components/TextBox/TextBox'
 
-const App = () => {
+export const App = () => {
   const [socket, setSocket] = useState(undefined)
   const [userName, setUserName] = useState('')
   const [inputText, setInputText] = useState('')
@@ -62,14 +63,13 @@ const App = () => {
 
   return (
     <Container>
-      <Chat messages={history} userName={userName} />
       <Title>
-        {userName === '' ? 'Insira seu nome' : `Digite a sua mensagem, ${userName}`}
+        {userName === '' ? 'Para conversar, comece inserindo seu nome' : `Bem vindo, ${userName}`}
       </Title>
-      <Input onChange={handleChange} onKeyDown={handleKeyDown} value={inputText} />
-      <Button onClick={handleSendMessage}>{userName === '' ? 'Confirmar' : 'Enviar'}</Button>
+      <Content>
+        <Chat messages={history} userName={userName} />
+        <TextBox handleChange={handleChange} handleKeyDown={handleKeyDown} handleSendMessage={handleSendMessage} inputText={inputText} userName={userName} />
+      </Content>
     </Container>
   )
 }
-
-export default App

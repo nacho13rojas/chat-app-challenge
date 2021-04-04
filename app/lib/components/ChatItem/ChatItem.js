@@ -27,7 +27,6 @@ const ChatItem = (_ref) => {
   const hour = date.getHours();
   const minutes = date.getMinutes();
   const formattedTime = "".concat(hour, ":").concat(minutes);
-  console.log(date);
   return /*#__PURE__*/_react.default.createElement(_styles.Container, {
     alignEnd: isUser
   }, /*#__PURE__*/_react.default.createElement(_styles.Box, {

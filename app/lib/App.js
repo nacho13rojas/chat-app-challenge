@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.App = void 0;
 
 require("core-js/modules/web.dom-collections.iterator.js");
 
@@ -12,6 +12,8 @@ var _react = _interopRequireWildcard(require("react"));
 var _styles = require("./styles");
 
 var _Chat = require("./components/Chat/Chat");
+
+var _TextBox = require("./components/TextBox/TextBox");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
@@ -74,17 +76,16 @@ const App = () => {
     socket.onmessage = event => handleMessage(event.data);
   }
 
-  return /*#__PURE__*/_react.default.createElement(_styles.Container, null, /*#__PURE__*/_react.default.createElement(_Chat.Chat, {
+  return /*#__PURE__*/_react.default.createElement(_styles.Container, null, /*#__PURE__*/_react.default.createElement(_styles.Title, null, userName === '' ? 'Para conversar, comece inserindo seu nome' : "Bem vindo, ".concat(userName)), /*#__PURE__*/_react.default.createElement(_styles.Content, null, /*#__PURE__*/_react.default.createElement(_Chat.Chat, {
     messages: history,
     userName: userName
-  }), /*#__PURE__*/_react.default.createElement(_styles.Title, null, userName === '' ? 'Insira seu nome' : "Digite a sua mensagem, ".concat(userName)), /*#__PURE__*/_react.default.createElement(_styles.Input, {
-    onChange: handleChange,
-    onKeyDown: handleKeyDown,
-    value: inputText
-  }), /*#__PURE__*/_react.default.createElement(_styles.Button, {
-    onClick: handleSendMessage
-  }, userName === '' ? 'Confirmar' : 'Enviar'));
+  }), /*#__PURE__*/_react.default.createElement(_TextBox.TextBox, {
+    handleChange: handleChange,
+    handleKeyDown: handleKeyDown,
+    handleSendMessage: handleSendMessage,
+    inputText: inputText,
+    userName: userName
+  })));
 };
 
-var _default = App;
-exports.default = _default;
+exports.App = App;
