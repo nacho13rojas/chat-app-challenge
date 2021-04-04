@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Container, MessageContainer, Text, Time, Title } from './styles'
 
-export const ChatItem = ({ message, userName }) => {
+export const ChatItem = ({ isFirstMessage, isLastMessage, message, userName }) => {
 
     const { time, text, author, color } = message
 
@@ -14,14 +14,14 @@ export const ChatItem = ({ message, userName }) => {
 
     return (
         <Container alignEnd={isUser}>
-            <Box alignEnd={isUser}>
+            <Box alignEnd={isUser} isFirstMessage={isFirstMessage} isLastMessage={isLastMessage}>
                 {isUser && <Time>
                     {formattedTime}
                 </Time>}
                 <MessageContainer>
-                    <Title color={color}>
+                    {isFirstMessage && <Title color={color}>
                         {author}
-                    </Title>
+                    </Title>}
                     <Text>
                         {text}
                     </Text>

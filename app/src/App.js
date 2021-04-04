@@ -10,6 +10,10 @@ export const App = () => {
   const [inputText, setInputText] = useState('')
   const [history, setHistory] = useState([])
 
+  const handleChange = (event) => {
+    setInputText(event.target.value)
+  }
+
   const handleSendMessage = () => {
     if (userName === '') {
       socket.send(inputText)
@@ -23,10 +27,6 @@ export const App = () => {
     }
   }
 
-  const handleChange = (event) => {
-    setInputText(event.target.value)
-  }
-
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       handleSendMessage()
@@ -34,12 +34,12 @@ export const App = () => {
   }
 
   const handleMessage = (messageObject) => {
-    const message = JSON.parse(messageObject)
+    const { data, type } = JSON.parse(messageObject)
 
-    if (message.type === 'history') {
-      setHistory(message.data)
-    } else if (message.type === 'message') {
-      setHistory(history.concat(message.data))
+    if (type === 'history') {
+      setHistory(data)
+    } else if (type === 'message') {
+      setHistory(history.concat(data))
     }
   }
 

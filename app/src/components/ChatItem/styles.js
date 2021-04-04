@@ -5,10 +5,15 @@ export const Box = styled.div`
     display: inline-flex;
     text-align: ${({ alignEnd }) => alignEnd ? 'end' : 'auto'};
     background-color: rgba(253,248,246, 0.3);
-    border-radius: ${({ alignEnd }) => alignEnd ? '8px 0px 8px 8px' : '0px 8px 8px 8px'};
+    border-radius: ${({ alignEnd, isFirstMessage }) => {
+        if (!isFirstMessage) {
+            return '6px 6px 6px 6px'
+        }
+        return alignEnd ? '6px 0px 6px 6px' : '0px 6px 6px 6px'
+    }};
     color: white;
     font-size: 12px;
-    margin-bottom: 8px;
+    margin-bottom: ${({ isLastMessage }) => isLastMessage ? '8px' : '2px'};
 `
 
 export const Container = styled.div`

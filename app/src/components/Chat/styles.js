@@ -5,18 +5,18 @@ export const Container = styled.div`
     border-radius: 5px 5px 0px 0px;
     color: white;
     height: 70vh;
-    width: 90vw;
     margin: 0px 16px;
     overflow-y: 'scroll';
     padding: 20px;
+    width: 90vw;
 `
 
 export const EmptyChatContainer = styled.div`
     align-items: center;
-    justify-content: center;
-    flex: 1;
-    width: 100%;
     display: flex;
+    flex: 1;
+    justify-content: center;
+    width: 100%;
 `
 
 export const EmptyChatText = styled.p`
@@ -29,9 +29,17 @@ export const Scroll = styled.div`
     height: 100%;
     width: 100%;
     overflow-y: auto;
-    &::-webkit-scrollbar {
-        display: none;
+    ::-webkit-scrollbar {
+        width: 24px;
     }
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    ::-webkit-scrollbar-track {
+        border: solid 8px transparent;
+        border-radius: 24px;
+        box-shadow: inset 0 0 24px 24px rgba(253,248,246, 0.1);
+    }
+    ::-webkit-scrollbar-thumb {
+        border: solid 8px transparent;
+        border-radius: 24px;
+        box-shadow: inset 0 0 14px 14px #888;
+    }
 `
