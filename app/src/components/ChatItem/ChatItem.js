@@ -8,13 +8,9 @@ export const ChatItem = ({ message, userName }) => {
     const isUser = author === userName
 
     const date = new Date(time)
-
     const hour = date.getHours();
     const minutes = date.getMinutes();
-
     const formattedTime = `${hour}:${minutes}`
-
-    console.log(date)
 
     return (
         <Container alignEnd={isUser}>
