@@ -4,7 +4,7 @@ How to run this project
 
 # Install
 ```
-git clone https://github.com/outsmartdigital/os-frontend-chat-challenge.git
+git clone https://github.com/nacho13rojas/chat-app-challenge.git
 
 cd os-frontend-chat-challenge
 
