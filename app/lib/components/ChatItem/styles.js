@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const Box = _styledComponents.default.div.withConfig({
   displayName: "styles__Box",
-  componentId: "sc-1awd8ct-0"
+  componentId: "sc-3uq367-0"
 })(["align-self:", ";background-color:", ";border-radius:", ";color:", ";display:inline-flex;font-size:12px;margin-bottom:", ";text-align:", ";"], (_ref) => {
   let {
     alignEnd
@@ -46,7 +46,7 @@ exports.Box = Box;
 
 const Container = _styledComponents.default.div.withConfig({
   displayName: "styles__Container",
-  componentId: "sc-1awd8ct-1"
+  componentId: "sc-3uq367-1"
 })(["align-self:", ";display:inline-flex;"], (_ref5) => {
   let {
     alignEnd
@@ -58,14 +58,14 @@ exports.Container = Container;
 
 const MessageContainer = _styledComponents.default.div.withConfig({
   displayName: "styles__MessageContainer",
-  componentId: "sc-1awd8ct-2"
+  componentId: "sc-3uq367-2"
 })(["margin:4px 8px;"]);
 
 exports.MessageContainer = MessageContainer;
 
 const Title = _styledComponents.default.h1.withConfig({
   displayName: "styles__Title",
-  componentId: "sc-1awd8ct-3"
+  componentId: "sc-3uq367-3"
 })(["color:", ";font-size:14px;margin:0px;"], (_ref6) => {
   let {
     color
@@ -77,14 +77,14 @@ exports.Title = Title;
 
 const Text = _styledComponents.default.p.withConfig({
   displayName: "styles__Text",
-  componentId: "sc-1awd8ct-4"
+  componentId: "sc-3uq367-4"
 })(["font-size:16px;margin:4px 0px 4px;"]);
 
 exports.Text = Text;
 
 const Time = _styledComponents.default.p.withConfig({
   displayName: "styles__Time",
-  componentId: "sc-1awd8ct-5"
+  componentId: "sc-3uq367-5"
 })(["align-self:flex-end;font-size:10px;margin:4px;"]);
 
 exports.Time = Time;
