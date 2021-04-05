@@ -6,9 +6,7 @@ How to run this project
 ```
 git clone https://github.com/nacho13rojas/chat-app-challenge.git
 
-cd os-frontend-chat-challenge
-
-git checkout ignacio-rojas
+cd chat-app-challenge
 ```
 
 # Run server
