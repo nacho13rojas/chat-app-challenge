@@ -9,10 +9,14 @@ var _react = _interopRequireDefault(require("react"));
 
 var _styles = require("./styles");
 
+var _utils = require("./utils");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const ChatItem = (_ref) => {
   let {
+    isFirstMessage,
+    isLastMessage,
     message,
     userName
   } = _ref;
@@ -22,18 +26,17 @@ const ChatItem = (_ref) => {
     author,
     color
   } = message;
-  const isUser = author === userName;
-  const date = new Date(time);
-  const hour = date.getHours();
-  const minutes = date.getMinutes();
-  const formattedTime = "".concat(hour, ":").concat(minutes);
+  const isCurrentUser = author === userName;
+  const formattedTime = (0, _utils.getFormattedTime)(time);
   return /*#__PURE__*/_react.default.createElement(_styles.Container, {
-    alignEnd: isUser
+    alignEnd: isCurrentUser
   }, /*#__PURE__*/_react.default.createElement(_styles.Box, {
-    alignEnd: isUser
-  }, isUser && /*#__PURE__*/_react.default.createElement(_styles.Time, null, formattedTime), /*#__PURE__*/_react.default.createElement(_styles.MessageContainer, null, /*#__PURE__*/_react.default.createElement(_styles.Title, {
+    alignEnd: isCurrentUser,
+    isFirstMessage: isFirstMessage,
+    isLastMessage: isLastMessage
+  }, isCurrentUser && /*#__PURE__*/_react.default.createElement(_styles.Time, null, formattedTime), /*#__PURE__*/_react.default.createElement(_styles.MessageContainer, null, isFirstMessage && /*#__PURE__*/_react.default.createElement(_styles.Title, {
     color: color
-  }, author), /*#__PURE__*/_react.default.createElement(_styles.Text, null, text)), !isUser && /*#__PURE__*/_react.default.createElement(_styles.Time, null, formattedTime)));
+  }, author), /*#__PURE__*/_react.default.createElement(_styles.Text, null, text)), !isCurrentUser && /*#__PURE__*/_react.default.createElement(_styles.Time, null, formattedTime)));
 };
 
 exports.ChatItem = ChatItem;

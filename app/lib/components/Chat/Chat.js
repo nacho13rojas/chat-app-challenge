@@ -11,6 +11,10 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _styles = require("./styles");
 
+var _EmptyChat = require("./EmptyChat");
+
+var _utils = require("./utils");
+
 var _ChatItem = require("../ChatItem/ChatItem");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -23,22 +27,12 @@ const Chat = (_ref) => {
     userName
   } = _ref;
   const messagesEndRef = (0, _react.useRef)(null);
-
-  const scrollToBottom = () => {
-    var _messagesEndRef$curre;
-
-    (_messagesEndRef$curre = messagesEndRef.current) === null || _messagesEndRef$curre === void 0 ? void 0 : _messagesEndRef$curre.scrollIntoView({
-      behavior: "smooth"
-    });
-  };
-
   (0, _react.useEffect)(() => {
-    scrollToBottom();
+    (0, _utils.scrollToBottom)(messagesEndRef);
   }, [messages]);
-
-  const EmptyChat = () => /*#__PURE__*/_react.default.createElement(_styles.EmptyChatContainer, null, /*#__PURE__*/_react.default.createElement(_styles.EmptyChatText, null, "As mensagens apareceram aqui"));
-
-  return /*#__PURE__*/_react.default.createElement(_styles.Container, null, messages.length === 0 && /*#__PURE__*/_react.default.createElement(EmptyChat, null), /*#__PURE__*/_react.default.createElement(_styles.Scroll, null, messages.map((message, index) => /*#__PURE__*/_react.default.createElement(_ChatItem.ChatItem, {
+  return /*#__PURE__*/_react.default.createElement(_styles.Container, null, messages.length === 0 && /*#__PURE__*/_react.default.createElement(_EmptyChat.EmptyChat, null), /*#__PURE__*/_react.default.createElement(_styles.Scroll, null, messages.map((message, index) => /*#__PURE__*/_react.default.createElement(_ChatItem.ChatItem, {
+    isFirstMessage: (0, _utils.getIsFirstMessage)(messages, index),
+    isLastMessage: (0, _utils.getIsLastMessage)(messages, index),
     key: index,
     message: message,
     userName: userName

@@ -1,38 +1,15 @@
 import React, { useEffect, useRef } from 'react'
-import { Container, EmptyChatContainer, EmptyChatText, Scroll } from './styles'
+import { Container, Scroll } from './styles'
+import { EmptyChat } from './EmptyChat'
+import { getIsFirstMessage, getIsLastMessage, scrollToBottom } from './utils'
 import { ChatItem } from '../ChatItem/ChatItem'
 
 export const Chat = ({ messages, userName }) => {
-
     const messagesEndRef = useRef(null)
 
-    const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-    }
-
     useEffect(() => {
-        scrollToBottom()
-    }, [messages]);
-
-    const EmptyChat = () => (
-        <EmptyChatContainer>
-            <EmptyChatText>As mensagens apareceram aqui</EmptyChatText>
-        </EmptyChatContainer>
-    )
-
-    const getIsFirstMessage = (index) => {
-        if (index === 0) {
-            return true
-        }
-        return messages[index].author !== messages[index - 1].author
-    }
-
-    const getIsLastMessage = (index) => {
-        if (index === messages.length - 1) {
-            return true
-        }
-        return messages[index].author !== messages[index + 1].author
-    }
+        scrollToBottom(messagesEndRef)
+    }, [messages])
 
     return (
         <Container>
@@ -40,8 +17,8 @@ export const Chat = ({ messages, userName }) => {
             <Scroll>
                 {messages.map((message, index) =>
                     <ChatItem
-                        isFirstMessage={getIsFirstMessage(index)}
-                        isLastMessage={getIsLastMessage(index)}
+                        isFirstMessage={getIsFirstMessage(messages, index)}
+                        isLastMessage={getIsLastMessage(messages, index)}
                         key={index}
                         message={message}
                         userName={userName}

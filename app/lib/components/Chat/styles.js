@@ -7,19 +7,21 @@ exports.Scroll = exports.EmptyChatText = exports.EmptyChatContainer = exports.Co
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
+var _colors = require("../../theme/colors");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const Container = _styledComponents.default.div.withConfig({
   displayName: "styles__Container",
   componentId: "sc-14pd8o-0"
-})(["background-color:rgba(253,248,246,0.1);border-radius:5px 5px 0px 0px;color:white;height:70vh;width:90vw;margin:0px 16px;overflow-y:'scroll';padding:20px;"]);
+})(["background-color:", ";border-radius:4px 4px 0px 0px;color:", ";height:70vh;margin:0px 16px;overflow-y:'scroll';padding:20px;width:90vw;"], _colors.PRIMARY, _colors.WHITE);
 
 exports.Container = Container;
 
 const EmptyChatContainer = _styledComponents.default.div.withConfig({
   displayName: "styles__EmptyChatContainer",
   componentId: "sc-14pd8o-1"
-})(["align-items:center;justify-content:center;flex:1;width:100%;display:flex;"]);
+})(["align-items:center;display:flex;flex:1;justify-content:center;width:100%;"]);
 
 exports.EmptyChatContainer = EmptyChatContainer;
 
@@ -33,6 +35,6 @@ exports.EmptyChatText = EmptyChatText;
 const Scroll = _styledComponents.default.div.withConfig({
   displayName: "styles__Scroll",
   componentId: "sc-14pd8o-3"
-})(["display:inline-flex;flex-direction:column;height:100%;width:100%;overflow-y:auto;&::-webkit-scrollbar{display:none;}-ms-overflow-style:none;scrollbar-width:none;"]);
+})(["display:inline-flex;flex-direction:column;height:100%;overflow-y:auto;width:100%;::-webkit-scrollbar{width:24px;}::-webkit-scrollbar-track{border:solid 8px transparent;border-radius:24px;box-shadow:inset 0 0 24px 24px ", ";}::-webkit-scrollbar-thumb{border:solid 8px transparent;border-radius:24px;box-shadow:inset 0 0 14px 14px ", ";}"], _colors.PRIMARY, _colors.SECONDARY);
 
 exports.Scroll = Scroll;

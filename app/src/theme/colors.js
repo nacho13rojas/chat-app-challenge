@@ -1,0 +1,5 @@
+export const PRIMARY = 'rgba(253,248,246, 0.1)'
+export const SECONDARY = 'rgba(253,248,246, 0.3)'
+export const TERTIARY = 'rgba(253,248,246, 0.5)'
+export const ACCENT = 'rgb(40,44,52)'
+export const WHITE = 'white'

@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+import { PRIMARY, SECONDARY, WHITE } from '../../theme/colors'
 
 export const Container = styled.div`
-    background-color: rgba(253,248,246, 0.1);
-    border-radius: 5px 5px 0px 0px;
-    color: white;
+    background-color: ${PRIMARY};
+    border-radius: 4px 4px 0px 0px;
+    color: ${WHITE};
     height: 70vh;
     margin: 0px 16px;
     overflow-y: 'scroll';
@@ -27,19 +28,19 @@ export const Scroll = styled.div`
     display: inline-flex;
     flex-direction: column;
     height: 100%;
-    width: 100%;
     overflow-y: auto;
+    width: 100%;
     ::-webkit-scrollbar {
         width: 24px;
     }
     ::-webkit-scrollbar-track {
         border: solid 8px transparent;
         border-radius: 24px;
-        box-shadow: inset 0 0 24px 24px rgba(253,248,246, 0.1);
+        box-shadow: inset 0 0 24px 24px ${PRIMARY};
     }
     ::-webkit-scrollbar-thumb {
         border: solid 8px transparent;
         border-radius: 24px;
-        box-shadow: inset 0 0 14px 14px #888;
+        box-shadow: inset 0 0 14px 14px ${SECONDARY};
     }
 `

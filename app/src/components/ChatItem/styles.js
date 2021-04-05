@@ -1,19 +1,20 @@
 import styled from 'styled-components'
+import { SECONDARY, WHITE } from '../../theme/colors'
 
 export const Box = styled.div`
     align-self: ${({ alignEnd }) => alignEnd ? 'flex-end' : 'auto'};
-    display: inline-flex;
-    text-align: ${({ alignEnd }) => alignEnd ? 'end' : 'auto'};
-    background-color: rgba(253,248,246, 0.3);
+    background-color: ${SECONDARY};
     border-radius: ${({ alignEnd, isFirstMessage }) => {
         if (!isFirstMessage) {
             return '6px 6px 6px 6px'
         }
         return alignEnd ? '6px 0px 6px 6px' : '0px 6px 6px 6px'
     }};
-    color: white;
+    color: ${WHITE};
+    display: inline-flex;
     font-size: 12px;
     margin-bottom: ${({ isLastMessage }) => isLastMessage ? '8px' : '2px'};
+    text-align: ${({ alignEnd }) => alignEnd ? 'end' : 'auto'};
 `
 
 export const Container = styled.div`

@@ -1,21 +1,16 @@
 import React from 'react'
 import { Box, Container, MessageContainer, Text, Time, Title } from './styles'
+import { getFormattedTime } from './utils'
 
 export const ChatItem = ({ isFirstMessage, isLastMessage, message, userName }) => {
-
     const { time, text, author, color } = message
-
-    const isUser = author === userName
-
-    const date = new Date(time)
-    const hour = date.getHours();
-    const minutes = date.getMinutes();
-    const formattedTime = `${hour}:${minutes}`
+    const isCurrentUser = author === userName
+    const formattedTime = getFormattedTime(time)
 
     return (
-        <Container alignEnd={isUser}>
-            <Box alignEnd={isUser} isFirstMessage={isFirstMessage} isLastMessage={isLastMessage}>
-                {isUser && <Time>
+        <Container alignEnd={isCurrentUser}>
+            <Box alignEnd={isCurrentUser} isFirstMessage={isFirstMessage} isLastMessage={isLastMessage}>
+                {isCurrentUser && <Time>
                     {formattedTime}
                 </Time>}
                 <MessageContainer>
@@ -26,7 +21,7 @@ export const ChatItem = ({ isFirstMessage, isLastMessage, message, userName }) =
                         {text}
                     </Text>
                 </MessageContainer>
-                {!isUser && <Time>
+                {!isCurrentUser && <Time>
                     {formattedTime}
                 </Time>}
             </Box>

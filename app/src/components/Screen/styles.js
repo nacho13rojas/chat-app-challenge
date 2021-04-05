@@ -1,20 +1,21 @@
 import styled from 'styled-components'
+import { ACCENT, WHITE } from '../../theme/colors'
 
 export const Container = styled.div`
-    background-color: #282c34;
-    min-height: 100vh;
+    background-color: ${ACCENT};
+    color: ${WHITE};
     display: flex;
     flex-direction: column;
-    color: white;
+    min-height: 100vh;
 `
 
 export const Content = styled.div`
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
     border-radius: 20px;
+    display: flex;
     flex: 1;
+    flex-direction: column;
+    justify-content: center;
 `
 
 export const Title = styled.h1`
